@@ -1,5 +1,5 @@
 {% set name = "xarray-dataclasses" %}
-{% set version = "1.7.0" %}
+{% set version = "1.8.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/xarray_dataclasses-{{ version }}.tar.gz
-  sha256: b82b454c5800bf9d488c188d6362428e6bc310d2fc35f96fa4063efa40d33267
+  sha256: abf80f444422dd987718e4c129ee7e9a302d342994b424d02c08d934a5ea4db6
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
