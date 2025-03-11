@@ -7,8 +7,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/xarray_dataclasses-{{ version }}.tar.gz
-  sha256: b82b454c5800bf9d488c188d6362428e6bc310d2fc35f96fa4063efa40d33267
+  url: https://pypi.io/packages/source/{{ name[0]|lower }}/{{ name|lower }}/{{ name|lower }}-{{ version }}.tar.gz
+  # sha256: b82b454c5800bf9d488c188d6362428e6bc310d2fc35f96fa4063efa40d33267
 
 build:
   noarch: python
