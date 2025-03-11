@@ -1,5 +1,5 @@
 {% set name = "xarray-dataclasses" %}
-{% set version = "1.7.0" %}
+{% set version = "1.9.1" %}
 
 package:
   name: {{ name|lower }}
@@ -17,13 +17,13 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.9
+    - python >=3.9, <3.14
     - poetry
   run:
-    - numpy
-    - python >=3.9
-    - typing-extensions >=4.0,<5.0
-    - xarray >=2022.3,<2024.0
+    - python >=3.9, <3.14
+    - numpy >=1.22, <3.0  # [py>=39]
+    - typing-extensions >=4.0
+    - xarray >=2022.3, <2025.0
 
 test:
   imports:
