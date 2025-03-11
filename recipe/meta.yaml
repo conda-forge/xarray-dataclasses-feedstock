@@ -1,12 +1,13 @@
 {% set name = "xarray-dataclasses" %}
 {% set version = "1.9.1" %}
+{% set python_min = "3.9" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/xarray_dataclasses-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/xarray_dataclasses-{{ version }}.tar.gz
   sha256: b82b454c5800bf9d488c188d6362428e6bc310d2fc35f96fa4063efa40d33267
 
 build:
@@ -17,13 +18,13 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.9, <3.14
+    - python {{ python_min }}
     - poetry
   run:
-    - python >=3.9, <3.14
-    - numpy >=1.22, <3.0  # [py>=39]
+    - python >={{ python_min }}
+    - numpy >=1.22,<3.0
     - typing-extensions >=4.0
-    - xarray >=2022.3, <2025.0
+    - xarray >=2022.3,<2025.0
 
 test:
   imports:
@@ -33,6 +34,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/astropenguin/xarray-dataclasses/
