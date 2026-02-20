@@ -1,6 +1,5 @@
 {% set name = "xarray-dataclasses" %}
 {% set version = "1.10.0" %}
-{% set python_min = "3.9" %}
 
 package:
   name: {{ name|lower }}
@@ -12,19 +11,19 @@ source:
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
   host:
     - pip
     - python {{ python_min }}
-    - poetry
+    - hatchling
   run:
     - python >={{ python_min }}
-    - numpy >=1.22,<3.0
-    - typing-extensions >=4.0
-    - xarray >=2022.3,<2025.0
+    - numpy >=2,<3
+    - typing_extensions >=4,<5
+    - xarray >=2024,<2027
 
 test:
   imports:
