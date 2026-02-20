@@ -1,6 +1,5 @@
 {% set name = "xarray-dataclasses" %}
-{% set version = "1.9.1" %}
-{% set python_min = "3.9" %}
+{% set version = "1.10.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,23 +7,23 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/xarray_dataclasses-{{ version }}.tar.gz
-  sha256: e5e88e10622b2bcb4db6087d636327f6e0311ae66fa10e94ea571805ed6937ad
+  sha256: c0d2f301f9457863946eb7f2973da4c554735a8751df48ce16653ea98c702c5f
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
 
 requirements:
   host:
     - pip
     - python {{ python_min }}
-    - poetry
+    - hatchling
   run:
     - python >={{ python_min }}
-    - numpy >=1.22,<3.0
-    - typing-extensions >=4.0
-    - xarray >=2022.3,<2025.0
+    - numpy >=2,<3
+    - typing_extensions >=4,<5
+    - xarray >=2024,<2027
 
 test:
   imports:
